@@ -14,6 +14,7 @@ int main() {
 	double area = 3.1415926*radius*radius;
 	sprintf(buf, "Name: %s Class: %s Area: %f", name, class, area);
 	printf("%s\n", buf);
+	printf("Demo done\n");
 	return 0;
 }
 

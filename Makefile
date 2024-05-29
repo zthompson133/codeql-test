@@ -1,4 +1,7 @@
-c_test: c_test.o
-	gcc  c_test.o -o c_test
+all: c_test
 
-clean: rm -f c_test.o
+c_test: c_test.c
+	$(CC) -Wall -o c_test c_test.c
+
+clean:
+	$(RM) c_test

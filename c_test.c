@@ -7,7 +7,7 @@ int main() {
 	char *name = gets(buf1);
 	printf("Enter class: ");
 	char *class = gets(buf2);
-	printf("Name: %s Class: %s", name, class);
+	sprintf(buf, "Name: %s Class: %s", name, class);
 	printf("%s\n", buf);
 	return 0;
 }

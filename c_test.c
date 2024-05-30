@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 	sprintf(buf, "Name: %s Class: %s Area: %f", name, class, area);
 	printf("%s\n", buf);
 	printf(argv[1], area);
-	printf("testing may 30th\n");
+	printf("Second test May 30th");
 	return 0;
 }
 

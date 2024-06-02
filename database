@@ -1,0 +1,21 @@
+if [ $# -eq 0 ]; then	
+	echo "No output file given"
+	exit 1
+fi
+codeql database create __codescan/c_test_db --language=c \
+--source-root=codeql-test --command='make clean' --command=make --overwrite
+codeql database analyze __codescan/c_test_db --format=sarif-latest --output=__codescan/$1
+read -p "Upload results to Github? " ans
+if [ "$ans" != "y" ]; then
+	exit 0
+fi
+read -p "Enter commit message: " msg
+cd codeql-test
+git add -u
+git commit -m "$msg"
+git push	
+codeql github upload-results --repository=zthompson133/codeql-test \
+--ref=refs/heads/main --commit=$(git rev-parse HEAD) --sarif=/home/zthompson/__codescan/$1 \
+--github-auth-stdin=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 
+cd ..
+exit 0	

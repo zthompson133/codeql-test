@@ -1,3 +1,1 @@
-# codeql-test
-Create Database:
-codeql database create __codescan/c_test_db --language=c --source-root=codeql-test --command=make
+The "database" file is designed to make running CodeQL and updating this repository faster from the zthompson account. It first creates a database called "c_test_db" and then scans C code in the codeql_test directory, and puts the SARIF files in the __codescan directory. The chosen name of the output SARIF file is given as an input argument. The user is then given a choice to update this Github repository, and choose the commit message. The file structure and the Github access token are hardcoded into the program to make running it faster.
